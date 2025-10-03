@@ -1,4 +1,4 @@
-import { JobTitle, Role } from "@prisma/client";
+import { JobTitle, Role, Department } from "@prisma/client";
 
 export interface CreateUserDTO {
   email: string;
@@ -7,4 +7,6 @@ export interface CreateUserDTO {
   lastName: string;
   jobTitle: JobTitle;
   role: Role; 
+  department?: Department;
+  salary?: number;
 }

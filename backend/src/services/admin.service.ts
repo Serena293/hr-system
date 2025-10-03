@@ -55,6 +55,8 @@ export class AdminService {
         lastName: data.lastName,
         jobTitle: data.jobTitle,
         role:  data.role ||"EMPLOYEE", 
+        department: data.department || null,
+        salary: data.salary || null,
       },
     });
 
@@ -65,10 +67,12 @@ export class AdminService {
       lastName: newUser.lastName,
       jobTitle: newUser.jobTitle,
       role: newUser.role,
+      department: newUser.department,
+      salary: newUser.salary,
     };
   }
 
-  async updateEmployee(id: number, data: Partial<RegisterDTO>) {
+  async updateEmployee(id: number, data: Partial<CreateUserDTO>) {
     const user = await prisma.user.findUnique({ where: { id } });
 
     if (!user || user.role !== "EMPLOYEE") {
@@ -80,6 +84,8 @@ export class AdminService {
       firstName: data.firstName,
       lastName: data.lastName,
       jobTitle: data.jobTitle,
+      department: data.department,
+      salary: data.salary,
     };
 
     if (data.password) {
@@ -98,6 +104,8 @@ export class AdminService {
       lastName: updatedUser.lastName,
       jobTitle: updatedUser.jobTitle,
       role: updatedUser.role,
+      department: updatedUser.department,
+      salary: updatedUser.salary,
     };
   }
 
