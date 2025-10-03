@@ -1,14 +1,17 @@
 import express from "express";
-import authRoutes from "./routes/authroutes";
+import authRoutes from "./routes/auth.routes";
+import employeeRoutes from "./routes/employee.routes";
+
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 
 
 app.use(express.json());
 
 
 app.use("/auth", authRoutes);
+app.use("/employee", employeeRoutes);
 
 
 app.listen(PORT, () => {
