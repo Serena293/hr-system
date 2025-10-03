@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { AdminService } from "../services/admin.service";
-import { CreateUserDTO } from "../dtos/createUserDTO";
+import { CreateUserDTO } from "../schemas/admin.schema";
 
 const adminService = new AdminService();
 

@@ -1,4 +1,3 @@
-import { JobTitle } from "@prisma/client";
 import prisma from "../prismaClient";
 
 export class EmployeeService {

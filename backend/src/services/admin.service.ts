@@ -1,7 +1,6 @@
 import prisma from "../prismaClient";
 import bcrypt from "bcrypt";
-import { RegisterDTO } from "../dtos/registerDTO";
-import { CreateUserDTO } from "../dtos/createUserDTO";
+import { CreateUserDTO } from "../schemas/admin.schema";
 
 export class AdminService {
   async getAllEmployees() {

@@ -1,5 +1,5 @@
-import { LoginDTO } from "../dtos/loginDTO";
-import { RegisterDTO } from "../dtos/registerDTO";
+import { LoginDTO } from "../schemas/login.schema";
+import { RegisterDTO } from "../schemas/auth.schema";
 import prisma from "../prismaClient";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
