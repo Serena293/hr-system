@@ -4,6 +4,8 @@ import { CreateUserDTO } from "../schemas/admin.schema";
 
 export class AdminService {
   async getAllEmployees() {
+      console.log("🟢 ADMIN SERVICE IS LOADED!"); 
+
     const users = await prisma.user.findMany({
       where: { role: "EMPLOYEE" },
     });
@@ -15,6 +17,8 @@ export class AdminService {
       lastName: user.lastName,
       jobTitle: user.jobTitle,
       role: user.role,
+      salary: user.salary,
+      department: user.department,
     }));
   }
 
@@ -24,6 +28,7 @@ export class AdminService {
     if (!user || user.role !== "EMPLOYEE") {
       throw new Error("Employee not found");
     }
+     
 
     return {
       id: user.id,
@@ -32,7 +37,10 @@ export class AdminService {
       lastName: user.lastName,
       jobTitle: user.jobTitle,
       role: user.role,
+      salary: user.salary,
+      department: user.department,
     };
+    
   }
 
   async createEmployee(data: CreateUserDTO) {
@@ -83,6 +91,7 @@ export class AdminService {
       firstName: data.firstName,
       lastName: data.lastName,
       jobTitle: data.jobTitle,
+      role: data.role,
       department: data.department,
       salary: data.salary,
     };

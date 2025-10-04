@@ -5,7 +5,6 @@ import { CreateUserDTO } from "../schemas/admin.schema";
 const adminService = new AdminService();
 
 export class AdminController {
-
   async listEmployees(req: Request, res: Response) {
     try {
       const employees = await adminService.getAllEmployees();
@@ -25,7 +24,6 @@ export class AdminController {
     }
   }
 
-
   async createUser(req: Request, res: Response) {
     try {
       const data: CreateUserDTO = req.body;
@@ -39,6 +37,7 @@ export class AdminController {
   async updateEmployee(req: Request, res: Response) {
     try {
       const id = parseInt(req.params.id);
+
       const updatedUser = await adminService.updateEmployee(id, req.body);
       return res.status(200).json(updatedUser);
     } catch (error: any) {

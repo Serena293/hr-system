@@ -8,9 +8,9 @@ import { CreateUserSchema } from "../schemas/admin.schema";
 const router = Router();
 const adminController = new AdminController();
 
-router.get("/employees", authMiddleware, isAdminMiddleware, (req, res) =>
-  adminController.listEmployees(req, res)
-);
+router.get("/employees", authMiddleware, isAdminMiddleware, (req, res) => {
+  adminController.listEmployees(req, res);
+});
 
 router.get("/employees/:id", authMiddleware, isAdminMiddleware, (req, res) =>
   adminController.getEmployee(req, res)
@@ -20,7 +20,7 @@ router.post("/users", authMiddleware, isAdminMiddleware, validate(CreateUserSche
   adminController.createUser(req, res)
 );
 
-router.put("/employees/:id", authMiddleware, isAdminMiddleware,validate(CreateUserSchema), (req, res) =>
+router.put("/employees/:id", authMiddleware, isAdminMiddleware, (req, res) =>
   adminController.updateEmployee(req, res)
 );
 
