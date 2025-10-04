@@ -3,7 +3,11 @@ import { createContext } from "react";
 export type User = {
   id: string;
   email: string;
-  role: "admin" | "employee";
+  firstName: string;
+  lastName: string;
+  jobTitle: string;
+  department?: string;
+  role: "ADMIN" | "EMPLOYEE";
 };
 
 export type AuthContextType = {

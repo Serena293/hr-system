@@ -47,7 +47,7 @@ const Navbar = () => {
                 Profile
               </Link>
 
-              {user?.role === "admin" && (
+              {user?.role === "ADMIN" && (
                 <Link
                   to="/employees"
                   className="px-3 py-2 rounded-md hover:bg-green-600 transition-colors"

@@ -32,9 +32,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       email,
       password,
     });
-    console.log("Login response:", res.data);
-    console.log("Login function triggered");
-
+  
     setToken(res.data.token);
     setUser(res.data.user);
     setIsLoading(false);

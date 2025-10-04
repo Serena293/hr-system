@@ -3,23 +3,48 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./componets/Navbar";
 import Footer from "./componets/Footer";
 import Login from "./componets/Login";
+import Profile from "./componets/Profile";
+import ProtectedRoute from "./componets/ProtectedRoute";
+import Dashboard from "./componets/Dashboard";
+import EmployeesPage from "./componets/EmployeesPage";
+
 function App() {
   return (
     <>
       <Router>
-        <div className="flex flex-col min-h-screen">
+        <div className="flex flex-col min-h-screen min-w-full">
           <Navbar />
-          <main className="bg-green-50 flex-grow container mx-auto px-4">
+          <main className="bg-green-50 flex-grow ">
             <Routes>
-              <Route path="/dashboard" element={<h2>Dashboard Page</h2>} />
-              <Route path="/login" element={<Login/>} />
-              <Route path="/profile" element={<h2>Profile Page</h2>} />
-              {/* <Route path="/employees" element={<h2>Employees Page</h2>} /> */}
+              <Route
+                path="/dashboard"
+                element={
+                  <ProtectedRoute>
+                    <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+              <Route path="/login" element={<Login />} />
+              <Route
+                path="/profile"
+                element={
+                  <ProtectedRoute>
+                    <Profile />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path="/employees"
+                element={
+                  <ProtectedRoute>
+                    <EmployeesPage />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="*" element={<h2>404 Not Found</h2>} />
             </Routes>
           </main>
-         <Footer />       
-          
+          <Footer />
         </div>
       </Router>
     </>
