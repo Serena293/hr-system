@@ -3,6 +3,7 @@ import authRoutes from "./routes/auth.routes";
 import employeeRoutes from "./routes/employee.routes";
 import adminRoutes from "./routes/admin.routes";
 import cors from "cors";
+import { createDemoUsers } from "./utils/createDemoUsers";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -19,6 +20,7 @@ app.use("/auth", authRoutes);
 app.use("/employee", employeeRoutes);
 app.use("/admin", adminRoutes);
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(` Server is running on http://localhost:${PORT}`);
+  await createDemoUsers();
 });
