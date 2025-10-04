@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
 const Navbar = () => {
@@ -13,52 +13,57 @@ const Navbar = () => {
       </nav>
     );
   }
-
+ const linkClass = ({ isActive }: { isActive: boolean }) =>
+    `px-3 py-2 rounded-md transition-colors ${
+      isActive
+        ? "bg-green-600 text-white"
+        : "hover:bg-green-600 hover:text-white"
+    }`;
   return (
     <nav className="bg-green-800 text-white px-6 py-3 shadow-md">
       <div className="container mx-auto flex justify-between items-center">
-        <Link to="/dashboard" className="text-xl font-bold text-green-100">
+        <NavLink to="/dashboard" className="text-xl font-bold text-green-100">
           HR System
-        </Link>
+        </NavLink>
 
         <div className="flex space-x-4">
           {!isAuthenticated && (
-            <Link
+            <NavLink
               to="/login"
               className="px-3 py-2 rounded-md bg-green-300 text-green-900 hover:bg-green-600 hover:text-white transition-colors"
             >
               Login
-            </Link>
+            </NavLink>
           )}
 
           {isAuthenticated && (
             <>
-              <Link
+              <NavLink
                 to="/dashboard"
-                className="px-3 py-2 rounded-md hover:bg-green-600 transition-colors"
+                className={linkClass}
               >
                 Dashboard
-              </Link>
+              </NavLink>
 
-              <Link
+              <NavLink
                 to="/profile"
-                className="px-3 py-2 rounded-md hover:bg-green-600 transition-colors"
+                className={linkClass}
               >
                 Profile
-              </Link>
+              </NavLink>
 
               {user?.role === "ADMIN" && (
-                <Link
+                <NavLink
                   to="/employees"
-                  className="px-3 py-2 rounded-md hover:bg-green-600 transition-colors"
+                  className={linkClass}
                 >
                   Employees
-                </Link>
+                </NavLink>
               )}
 
               <button
                 onClick={logout}
-                className="px-3 py-2 rounded-md bg-green-500 hover:bg-green-600 transition-colors"
+                className="px-3 py-2 rounded-md hover:bg-green-600 transition-colors"
               >
                 Logout
               </button>

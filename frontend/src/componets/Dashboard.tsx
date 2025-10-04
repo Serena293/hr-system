@@ -22,6 +22,7 @@ interface Employee {
 
 const Dashboard = () => {
   const { user } = useAuth();
+  
 
   const [stats, setStats] = useState<DashboardStats>({
     totalEmployees: 0,
