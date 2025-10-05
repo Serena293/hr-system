@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import type { FormEvent } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const { login } = useAuth();
@@ -9,6 +10,7 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
   const emailRef = useRef<HTMLInputElement | null>(null);
+  const navigate = useNavigate()
 
   useEffect(() => {
     emailRef.current?.focus();
@@ -25,10 +27,9 @@ const Login = () => {
 
     try {
       await login(email, password);
-      window.location.href = "/dashboard";
-    } catch (err: unknown) {
-      console.log(err, "Login error");
-      setError("Login failed. Please try again.");
+      navigate("/dashboard")
+    } catch  {
+           setError("Login failed. Please try again.");
     }
   };
 

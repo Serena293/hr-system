@@ -3,10 +3,12 @@ import type { ReactNode } from "react";
 import api from "../lib/axios";
 import { AuthContext, type User } from "./AuthContext";
 
+
 export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
   const [token, setToken] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
@@ -39,6 +41,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setIsLoading(false);
 
     localStorage.setItem("token", res.data.token);
+    
   };
 
   const logout = () => {
@@ -46,7 +49,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     setIsLoading(false);
     localStorage.removeItem("token");
-    window.location.replace("/login");
+    
   };
 
   return (
