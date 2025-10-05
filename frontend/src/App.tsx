@@ -20,7 +20,7 @@ function App() {
             <Routes>
                <Route path="/" element={<Navigate to="/login" replace />} />              
                <Route
-                  path="/dashboard"
+                  path="/dashboard/"
                   element={
                     <ProtectedRoute>
                       <Dashboard />
