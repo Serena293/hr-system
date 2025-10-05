@@ -52,8 +52,8 @@ It allows **Admins** to manage employees and **Employees** to view their own dat
 ---
 
 ## 🌐 Live Demo
-> 🔗 **Frontend:** https://hr-system-fe.onrender.com
-> 🔗 **Backend API:** https://hr-system-k06k.onrender.com
+> 🔗 **Frontend:** -https://hr-system-frontend-bhcj.onrender.com
+> 🔗 **Backend API:** https://hr-system-backend-hz5l.onrender.com
 
 
 
