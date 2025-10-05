@@ -1,5 +1,5 @@
 services:
-  # === Backend API ===
+  # === Backend (Express + Node) ===
   - type: web
     name: hr-system-backend
     env: node
@@ -14,17 +14,18 @@ services:
         sync: false
       - key: JWT_SECRET
         sync: false
-      - key: PORT
-        value: 8000
       - key: FRONTEND_URL
         value: https://hr-system-fe.onrender.com
+      - key: PORT
+        value: 8000
 
   # === Frontend ===
-  - type: static
+  - type: web
     name: hr-system-frontend
+    env: static
     rootDir: frontend
     buildCommand: npm install && npm run build
-    publishPath: dist
+    staticPublishPath: dist
     envVars:
       - key: VITE_API_URL
         value: https://hr-system-backend.onrender.com
