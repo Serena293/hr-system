@@ -7,14 +7,16 @@ import Profile from "./componets/Profile";
 import ProtectedRoute from "./componets/ProtectedRoute";
 import Dashboard from "./componets/Dashboard";
 import EmployeesPage from "./componets/EmployeesPage";
+import NotFound from "./componets/NotFound";
 
 function App() {
   return (
     <>
       <Router>
-        <div className="flex flex-col min-h-screen min-w-full">
+        <div className="flex flex-col min-h-screen">
           <Navbar />
-          <main className="bg-green-50 flex-grow ">
+         <main className="flex-1 flex flex-col bg-green-50 overflow-hidden">
+          <div className="flex-grow flex flex-col">
             <Routes>
               <Route
                 path="/dashboard"
@@ -41,8 +43,9 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="*" element={<h2>404 Not Found</h2>} />
+              <Route path="*" element={<NotFound/>} />
             </Routes>
+             </div>
           </main>
           <Footer />
         </div>

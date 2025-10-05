@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { useAuth } from "../hooks/useAuth";
 import api from "../lib/axios";
 import EmployeeForm from "./EmployeeForm";
 import DeleteConfirmation from "./DeleteConfirmation";
@@ -16,11 +15,9 @@ export interface Employee {
 }
 
 const EmployeesPage = () => {
-  // const { user } = useAuth();
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
   const [showModal, setShowModal] = useState(false);
   const [editingEmployee, setEditingEmployee] = useState<Employee | null>(null);
   const [deleteConfirm, setDeleteConfirm] = useState<string | null>(null);
@@ -53,8 +50,6 @@ const EmployeesPage = () => {
 
   const handleUpdate = async (id: string, employeeData: Partial<Employee>) => {
     try {
-      console.log("🟡 Frontend - Updating employee:", id);
-      console.log("📦 Data being sent:", employeeData);
       await api.put(`/admin/employees/${id}`, employeeData);
       await fetchEmployees();
       setEditingEmployee(null);
@@ -93,7 +88,7 @@ const EmployeesPage = () => {
     <div className="py-8 px-4">
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold text-green-800">
-          Employees Management
+          Employee Management
         </h1>
         <button
           onClick={() => setShowModal(true)}
@@ -103,7 +98,7 @@ const EmployeesPage = () => {
         </button>
       </div>
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
+      <div className="bg-white rounded-lg shadow-md overflow-y-auto">
         <table className="min-w-full divide-y divide-green-200">
           <thead className="bg-green-50">
             <tr>
@@ -118,7 +113,7 @@ const EmployeesPage = () => {
               </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase tracking-wider">
                 Department
-              </th>            
+              </th>
               <th className="px-6 py-3 text-left text-xs font-medium text-green-700 uppercase tracking-wider">
                 Salary
               </th>
