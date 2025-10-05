@@ -1,10 +1,12 @@
 services:
-  # === Backend (Express + Node) ===
+  # === Backend ===
   - type: web
     name: hr-system-backend
     env: node
     rootDir: backend
-    buildCommand: npm install && npm run build
+    buildCommand: |
+      npm install --include=dev
+      npm run build
     startCommand: npm run start
     plan: free
     envVars:
