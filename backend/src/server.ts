@@ -14,7 +14,7 @@ app.use(express.json());
 app.use(cors({
    origin: [
       "http://localhost:5173",
-      "https://hr-system-fe.onrender.com",
+      "https://hr-system-frontend-bhcj.onrender.com",
       "http://localhost:3000"
     ],
   credentials: true
