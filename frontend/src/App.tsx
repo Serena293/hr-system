@@ -1,5 +1,5 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./componets/Navbar";
 import Footer from "./componets/Footer";
 import Login from "./componets/Login";
@@ -18,7 +18,7 @@ function App() {
          <main className="flex-1 flex flex-col bg-green-50 overflow-hidden">
           <div className="flex-grow flex flex-col">
             <Routes>
-              
+               <Route path="/" element={<Navigate to="/login" replace />} />              
                <Route
                   path="/dashboard"
                   element={
