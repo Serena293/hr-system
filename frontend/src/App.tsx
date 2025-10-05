@@ -19,13 +19,21 @@ function App() {
           <div className="flex-grow flex flex-col">
             <Routes>
               <Route
-                path="/dashboard"
+                path="/"
                 element={
                   <ProtectedRoute>
                     <Dashboard />
                   </ProtectedRoute>
                 }
               />
+               <Route
+                  path="/dashboard"
+                  element={
+                    <ProtectedRoute>
+                      <Dashboard />
+                    </ProtectedRoute>
+                  }
+                />
               <Route path="/login" element={<Login />} />
               <Route
                 path="/profile"
@@ -43,7 +51,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
-              <Route path="/" element={<Login />} />
+            
               <Route path="*" element={<NotFound/>} />
             </Routes>
              </div>
