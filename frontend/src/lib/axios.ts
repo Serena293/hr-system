@@ -19,9 +19,14 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-      if (error.response?.status === 401) {
+    if (error.response?.status === 401) {
+      const currentPath = window.location.pathname;
       localStorage.removeItem("token");
-      window.location.href = "/login"; 
+
+      
+      if (currentPath !== "/login") {
+        window.location.replace("/login");
+      }
     }
     return Promise.reject(error);
   }

@@ -16,7 +16,8 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       api
         .get<User>("employee/profile")
         .then((res) => setUser(res.data))
-        .catch(() => {
+        .catch((err) => {
+          console.warn("Profile fetch failed:", err?.response?.status);
           localStorage.removeItem("token");
           setToken(null);
           setUser(null);
@@ -32,7 +33,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
       email,
       password,
     });
-  
+
     setToken(res.data.token);
     setUser(res.data.user);
     setIsLoading(false);
@@ -45,7 +46,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     setUser(null);
     setIsLoading(false);
     localStorage.removeItem("token");
-    window.location.href = "/login";
+    window.location.replace("/login");
   };
 
   return (
