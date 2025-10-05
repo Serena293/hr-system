@@ -28,7 +28,8 @@ const Login = () => {
       console.log("Calling login with:", email, password);
       await login(email, password);
       window.location.href = "/dashboard";
-    } catch {
+    } catch (err : unknown) {
+      console.log(err, "Login error");
       setError("Login failed. Please try again.");
     }
   };

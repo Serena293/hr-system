@@ -43,6 +43,7 @@ function App() {
                   </ProtectedRoute>
                 }
               />
+              <Route path="/" element={<Login />} />
               <Route path="*" element={<NotFound/>} />
             </Routes>
              </div>
