@@ -28,7 +28,7 @@ export async function createDemoUsers() {
         lastName: "Demo",
         role: Role.EMPLOYEE,
         jobTitle: JobTitle.FRONTEND_DEVELOPER,
-        department: Department.ENGINEERING, //
+        department: Department.ENGINEERING, 
         salary: 30000,
       },
       {
@@ -48,7 +48,7 @@ export async function createDemoUsers() {
         lastName: "Raccoon",
         role: Role.EMPLOYEE,
         jobTitle: JobTitle.BACKEND_DEVELOPER,
-        department: Department.ENGINEERING, //
+        department: Department.ENGINEERING, 
         salary: 35000,
       },
     ];

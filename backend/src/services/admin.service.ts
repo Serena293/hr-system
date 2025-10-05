@@ -4,11 +4,8 @@ import { CreateUserDTO } from "../schemas/admin.schema";
 
 export class AdminService {
   async getAllEmployees() {
-      console.log("🟢 ADMIN SERVICE IS LOADED!"); 
 
-    const users = await prisma.user.findMany({
-      where: { role: "EMPLOYEE" },
-    });
+    const users = await prisma.user.findMany();
 
     return users.map((user) => ({
       id: user.id,

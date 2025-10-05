@@ -1,7 +1,6 @@
 import { Response } from "express";
 import { EmployeeService} from "../services/employee.service";
 import { AuthRequest } from "../middlewares/auth.middleware";
-import { Prisma } from "@prisma/client";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 
 const employeeService = new EmployeeService();
