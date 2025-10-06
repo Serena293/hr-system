@@ -1,3 +1,9 @@
+/**
+ * AuthProvider.tsx
+ * Provides authentication context for the application.
+ * Manages login, logout, and user session persistence via localStorage.
+ */
+
 import { useState, useEffect } from "react";
 import type { ReactNode } from "react";
 import api from "../lib/axios";
@@ -10,6 +16,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [isLoading, setIsLoading] = useState(true);
 
 
+/**
+   * On initial mount, check for a stored token.
+   * If found, attempt to fetch the user profile to restore the session.
+   */
   useEffect(() => {
     const storedToken = localStorage.getItem("token");
     if (storedToken) {
@@ -30,6 +40,10 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  /**
+   * Logs the user in using credentials.
+   * Stores JWT token and user data locally.
+   */
   const login = async (email: string, password: string) => {
     const res = await api.post<{ token: string; user: User }>("/auth/login", {
       email,
@@ -44,6 +58,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     
   };
 
+  //Logs the user out by clearing all authentication data.
   const logout = () => {
     setToken(null);
     setUser(null);
@@ -52,6 +67,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     
   };
 
+  //Exposes authentication state and actions to the entire app.
   return (
     <AuthContext.Provider
       value={{

@@ -1,3 +1,8 @@
+/**
+ * Login.tsx
+ * Provides the user login form and handles authentication logic.
+ */
+
 import { useState, useRef, useEffect } from "react";
 import type { FormEvent } from "react";
 import { useAuth } from "../hooks/useAuth";

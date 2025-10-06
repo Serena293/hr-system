@@ -1,3 +1,9 @@
+/**
+ * ProtectedRoute.tsx
+ * Restricts access to routes that require authentication.
+ * Displays a loading spinner while verifying user state and redirects unauthenticated users to login.
+ */
+
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/useAuth";
 
@@ -5,6 +11,12 @@ interface ProtectedRouteProps {
   children: React.ReactNode;
 }
 
+/**
+ * Wrapper component for protected pages.
+ * - Shows a loader while authentication state is being determined.
+ * - Redirects to /login if the user is not authenticated.
+ * - Renders children if the user is authorized.
+ */
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
   const { isAuthenticated, isLoading } = useAuth();
 

@@ -1,3 +1,9 @@
+/**
+ * useAuth.ts
+ * Custom React hook that provides access to authentication context.
+ * Ensures the hook is used only within a valid <AuthProvider>.
+ */
+
 import { useContext } from "react";
 import { AuthContext, type AuthContextType } from "../context/AuthContext";
 

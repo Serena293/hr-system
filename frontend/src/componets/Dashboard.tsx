@@ -1,3 +1,9 @@
+/**
+ * Dashboard.tsx
+ * Displays the main dashboard for both Admin and Employee roles.
+ * Fetches employee statistics for admins and personalized data for employees.
+ */
+
 import { useState, useEffect } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { Link } from "react-router-dom";
@@ -31,6 +37,11 @@ const Dashboard = () => {
   });
   const [loading, setLoading] = useState(true);
 
+
+   /**
+   * Fetch admin statistics when user is an ADMIN.
+   * Includes total employees, role distribution, and department counts.
+   */
   useEffect(() => {
     const fetchStats = async () => {
       if (user?.role === "ADMIN") {

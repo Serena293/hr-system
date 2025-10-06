@@ -1,3 +1,9 @@
+/**
+ * App.tsx
+ * Main application component defining the routing structure.
+ */
+
+
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./componets/Navbar";

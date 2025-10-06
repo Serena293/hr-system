@@ -1,3 +1,9 @@
+/**
+ * AuthContext.tsx
+ * Defines the shape of authentication-related data and actions.
+ * Provides global access to user information and auth utilities across the app.
+ */
+
 import { createContext } from "react";
 
 export type User = {
