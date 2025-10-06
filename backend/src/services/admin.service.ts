@@ -118,7 +118,7 @@ export class AdminService {
   async deleteEmployee(id: number) {
     const user = await prisma.user.findUnique({ where: { id } });
 
-    if (!user || user.role !== "EMPLOYEE") {
+    if (!user ) {
       throw new Error("Employee not found");
     }
 
