@@ -1,3 +1,8 @@
+/**
+ * createDemoUsers.ts
+ * Seeds demo users into the database for development and testing purposes.
+ * Skips execution in production environments.
+ */
 import prisma from "../prismaClient";
 import bcrypt from "bcrypt";
 import { Role, JobTitle, Department } from "@prisma/client";

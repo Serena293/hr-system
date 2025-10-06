@@ -1,3 +1,5 @@
+// Validation schema for login and export of LoginDTO
+
 import { z } from "zod";
 
 export const LoginSchema = z.object({

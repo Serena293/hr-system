@@ -1,3 +1,9 @@
+/**
+ * employee.routes.ts
+ * Defines routes accessible to authenticated employees.
+ * Read-only profile endpoint.
+ */
+
 import { Router } from "express";
 import { EmployeeController } from "../controllers/employee.controller";
 import { authMiddleware } from "../middlewares/auth.middleware";

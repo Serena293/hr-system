@@ -1,3 +1,9 @@
+/**
+ * isAdmin.middleware.ts
+ * Middleware that restricts access to admin-only routes.
+ * Checks if the authenticated user has the role "ADMIN".
+ */
+
 import { Response, NextFunction } from "express";
 import { AuthRequest } from "./auth.middleware";
 

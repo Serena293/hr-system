@@ -1,3 +1,9 @@
+/**
+ * admin.service.ts
+ * Provides business logic for admin-level operations.
+ * Handles CRUD actions for employee management using Prisma ORM.
+ */
+
 import prisma from "../prismaClient";
 import bcrypt from "bcrypt";
 import { CreateUserDTO } from "../schemas/admin.schema";

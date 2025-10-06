@@ -1,3 +1,9 @@
+/**
+ * AdminController
+ * Handles all employee management actions available to admin users.
+ * Uses admin.service to perform database operations.
+ */
+
 import { Request, Response } from "express";
 import { AdminService } from "../services/admin.service";
 import { CreateUserDTO } from "../schemas/admin.schema";
@@ -5,6 +11,8 @@ import { CreateUserDTO } from "../schemas/admin.schema";
 const adminService = new AdminService();
 
 export class AdminController {
+
+  // Fetch a list of all employees in the system.
   async listEmployees(req: Request, res: Response) {
     try {
       const employees = await adminService.getAllEmployees();
@@ -14,6 +22,7 @@ export class AdminController {
     }
   }
 
+  //Retrive a single employee by ID
   async getEmployee(req: Request, res: Response) {
     try {
       const id = parseInt(req.params.id);
@@ -24,6 +33,7 @@ export class AdminController {
     }
   }
 
+  //create a new employee account, expexts CreateUserDTO
   async createUser(req: Request, res: Response) {
     try {
       const data: CreateUserDTO = req.body;
@@ -34,6 +44,7 @@ export class AdminController {
     }
   }
 
+  //Update information of an existing employee
   async updateEmployee(req: Request, res: Response) {
     try {
       const id = parseInt(req.params.id);
@@ -45,6 +56,7 @@ export class AdminController {
     }
   }
 
+  //remove employee from DB by Id
   async deleteEmployee(req: Request, res: Response) {
     try {
       const id = parseInt(req.params.id);

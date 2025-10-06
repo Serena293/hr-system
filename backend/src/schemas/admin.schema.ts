@@ -1,3 +1,9 @@
+/**
+ * Validation schema for new user creation.
+ * Exports CreateUserDTO for use in controllers and services.
+ */
+
+
 import { z } from "zod";
 
 export const CreateUserSchema = z.object({

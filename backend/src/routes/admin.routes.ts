@@ -1,3 +1,9 @@
+/**
+ * admin.routes.ts
+ * Defines routes for administrative operations such as managing employees and users.
+ * Protected by authentication and admin role middlewares.
+ */
+
 import { Router } from "express";
 import { AdminController } from "../controllers/admin.controller";
 import { authMiddleware } from "../middlewares/auth.middleware";

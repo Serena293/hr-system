@@ -1,3 +1,9 @@
+/**
+ * validate.middleware.ts
+ * Generic middleware for validating incoming request bodies using Zod schemas.
+ * Ensures that all data matches the expected structure before reaching the controller.
+ */
+
 import { ZodSchema } from "zod";
 import { Request, Response, NextFunction } from "express";
 

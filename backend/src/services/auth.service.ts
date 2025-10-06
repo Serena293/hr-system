@@ -1,3 +1,9 @@
+/**
+ * auth.service.ts
+ * Handles business logic for user authentication and login.
+ * Validates credentials, compares passwords, and generates JWT tokens.
+ */
+
 import { LoginDTO } from "../schemas/login.schema";
 import prisma from "../prismaClient";
 import bcrypt from "bcrypt";

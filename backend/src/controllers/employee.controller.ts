@@ -1,3 +1,8 @@
+/**
+ * employee.controller.ts
+ * Handles endpoints for retrieving employee profile information (read-only).
+ */
+
 import { Response } from "express";
 import { EmployeeService} from "../services/employee.service";
 import { AuthRequest } from "../middlewares/auth.middleware";

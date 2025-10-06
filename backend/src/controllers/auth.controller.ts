@@ -1,3 +1,5 @@
+// auth.controller.ts — contains endpoints for authentication and user login logic
+
 import { Request, Response } from "express";
 import { AuthService } from "../services/auth.service";
 
