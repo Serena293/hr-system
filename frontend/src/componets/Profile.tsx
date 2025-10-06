@@ -115,7 +115,7 @@ const Profile = () => {
 
         <div className="mt-6 pt-6 border-t border-green-200">
           <p className="text-sm text-green-600">
-            Profile information is read-only. Contact hr for updates.
+            Profile information is read-only. 
           </p>
         </div>
       </div>

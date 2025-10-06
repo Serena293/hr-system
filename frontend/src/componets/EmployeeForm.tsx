@@ -197,12 +197,8 @@ const EmployeeForm = ({ employee, onSubmit, onCancel }: EmployeeFormProps) => {
                 onChange={handleChange}
                 className="w-full px-3 py-2 border border-green-300 rounded-md focus:ring-2 focus:ring-green-500 focus:outline-none"
                 placeholder="Optional"
-                min={1000}
+                min={0}
                 step={100}
-                onInput={(e) => {
-                  const target = e.target as HTMLInputElement;
-                  if (Number(target.value) < 1000) target.value = "1000";
-                }}
               />
             </div>
 

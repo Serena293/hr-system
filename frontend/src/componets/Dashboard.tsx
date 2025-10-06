@@ -79,7 +79,7 @@ const Dashboard = () => {
     <div className="h-full overflow-y-auto">
       <div className="max-w-6xl mx-auto w-full py-8 px-4">
         <h1 className="text-3xl font-bold text-green-800 mb-2">
-          Welcome back, {user?.firstName}!
+          Welcome back {user?.firstName}
         </h1>
         <p className="text-green-600 mb-8">
           {user?.role === "ADMIN"
@@ -187,7 +187,7 @@ const Dashboard = () => {
                 </Link>
                 <Link
                   to="/profile"
-                  className="px-4 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors"
+                  className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors"
                 >
                   View Profile
                 </Link>
